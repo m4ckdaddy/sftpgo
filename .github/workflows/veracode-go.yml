@@ -6,21 +6,7 @@ on:
   pull_request:
 
 jobs:
-  test-deploy:
-    name: Test and deploy
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        go: ['1.21']
-        os: [ubuntu-latest, macos-latest]
-        upload-coverage: [true]
-        include:
-          - go: '1.21'
-            os: windows-latest
-            upload-coverage: false
-
-
-
+ # test-deploy:
   build:
     name: Build Go app
     runs-on: ubuntu-latest
@@ -31,7 +17,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
-        go-version: 1.20  # Adjust this to your preferred Go version
+        go-version: 1.21  # Adjust this to your preferred Go version
 
     # - name: Build
     #   run: go build
@@ -43,22 +29,23 @@ jobs:
         go install github.com/relaxnow/vcgopkg
         ls -la */**
         pwd
+        vcgopkg
+        
     
-    
-    - name: Set up Go
-      uses: actions/setup-go@v4
-      with:
-        go-version: ${{ matrix.go }}
+    # - name: Set up Go
+    #   uses: actions/setup-go@v4
+    #   with:
+    #     go-version: ${{ matrix.go }}
 
-    - name: Build for Linux/macOS x86_64
-      if: startsWith(matrix.os, 'windows-') != true
-      run: |
-        go build -trimpath -tags nopgxregisterdefaulttypes -ldflags "-s -w -X github.com/drakkan/sftpgo/v2/internal/version.commit=`git describe --always --abbrev=8 --dirty` -X github.com/drakkan/sftpgo/v2/internal/version.date=`date -u +%FT%TZ`" -o sftpgo
-        cd tests/eventsearcher
-        go build -trimpath -ldflags "-s -w" -o eventsearcher
-        cd -
-        cd tests/ipfilter
-        go build -trimpath -ldflags "-s -w" -o ipfilter
-        cd -
-        ./sftpgo initprovider
-        ./sftpgo resetprovider --force
+    # - name: Build for Linux/macOS x86_64
+    #   if: startsWith(matrix.os, 'windows-') != true
+    #   run: |
+    #     go build -trimpath -tags nopgxregisterdefaulttypes -ldflags "-s -w -X github.com/drakkan/sftpgo/v2/internal/version.commit=`git describe --always --abbrev=8 --dirty` -X github.com/drakkan/sftpgo/v2/internal/version.date=`date -u +%FT%TZ`" -o sftpgo
+    #     cd tests/eventsearcher
+    #     go build -trimpath -ldflags "-s -w" -o eventsearcher
+    #     cd -
+    #     cd tests/ipfilter
+    #     go build -trimpath -ldflags "-s -w" -o ipfilter
+    #     cd -
+    #     ./sftpgo initprovider
+    #     ./sftpgo resetprovider --force
