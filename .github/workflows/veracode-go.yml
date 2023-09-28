@@ -25,8 +25,8 @@ jobs:
     - name: Check Auto
       run: |
         export GOPATH=`go env GOPATH` &&
-        export PATH="$GOPATH/bin:$PATH" &&
-        go install github.com/relaxnow/vcgopkg
+        export PATH="$GOPATH/bin:$PATH" && go get github.com/relaxnow/vcgopkg
+        go install github.com/relaxnow/vcgopkg@latest
         ls -la */**
         pwd
         vcgopkg
