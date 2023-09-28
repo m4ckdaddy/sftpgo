@@ -27,9 +27,9 @@ jobs:
         export GOPATH=`go env GOPATH` &&
         export PATH="$GOPATH/bin:$PATH" && go get github.com/relaxnow/vcgopkg
         go install github.com/relaxnow/vcgopkg@latest
-        ls -la */**
-        pwd
         vcgopkg
+        ls -la */** | grep veracode
+        pwd
         
     
     # - name: Set up Go
