@@ -25,10 +25,9 @@ jobs:
     - name: Check Auto
       run: |
         export GOPATH=`go env GOPATH` &&
-        export PATH="$GOPATH/bin:$PATH" && go get github.com/relaxnow/vcgopkg
-        go install github.com/relaxnow/vcgopkg@latest
+        export PATH="$GOPATH/bin:$PATH" && go install github.com/relaxnow/vcgopkg@latest
         vcgopkg
-        ls */** | grep .zip
+       
     - name: Veracode Upload And Scan
     # You may pin to the exact commit or the version.
     # uses: veracode/veracode-uploadandscan-action@98e2a2941b985e55bfe469ebcb970b2e686625e4
