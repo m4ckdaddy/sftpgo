@@ -8,7 +8,7 @@
 Fully featured and highly configurable SFTP server with optional HTTP/S, FTP/S and WebDAV support.
 Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage, Azure Blob Storage, SFTP.
 
-## Sponsors
+## Sponsors 
 
 If you find SFTPGo useful please consider supporting this Open Source project.
 
