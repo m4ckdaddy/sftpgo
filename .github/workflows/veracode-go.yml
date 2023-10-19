@@ -26,7 +26,12 @@ jobs:
       run: |
         export GOPATH=`go env GOPATH` &&
         export PATH="$GOPATH/bin:$PATH" && go install github.com/relaxnow/vcgopkg@latest
-        vcgopkg
+        vcgopkg .
+    - name: Run SCA Curl Script
+      run: |
+        export SRCCLR_API_TOKEN='${{ secrets.SRCCLR_API_TOKEN }}'
+        cd ${{ github.workspace }}
+        curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan ./ --recursive --update-advisor
  #    - name: Veracode Dependency Scanning
  #      # You may pin to the exact commit or the version.
  #      # uses: veracode/veracode-sca@f910b2a575b6c43db72a46a9334d0883f7c0a91a
