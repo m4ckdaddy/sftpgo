@@ -23,8 +23,8 @@ jobs:
 
     - name: Check Auto
       run: |
-        export GOPATH=`go env GOPATH` &&
-        export PATH="$GOPATH/bin:$PATH" && go install github.com/relaxnow/vcgopkg@latest
+     #   export GOPATH=`go env GOPATH` &&
+       # export PATH="$GOPATH/bin:$PATH" && go install github.com/relaxnow/vcgopkg@latest
         vcgopkg .
     - name: Run SCA Curl Script
       run: |
