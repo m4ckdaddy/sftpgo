@@ -6,7 +6,7 @@
 [![Mentioned in Awesome Go](https://awesome.re/mentioned-badge.svg)](https://github.com/avelino/awesome-go)
 
 Fully featured and highly configurable SFTP server with optional HTTP/S, FTP/S and WebDAV support.
-Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Object Storage, Google Cloud Storage, Azure Blob Storage, SFTP.
+Several storage backends are supported: local filesystem, encrypted local filesystem, S3 (compatible) Objdect Storage, Google Cloud Storage, Azure Blob Storage, SFTP.
 
 ## Sponsors
 
