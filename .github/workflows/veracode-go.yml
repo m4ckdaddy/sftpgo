@@ -23,9 +23,10 @@ jobs:
 
     - name: Check Auto
       run: |
-     #   export GOPATH=`go env GOPATH` &&
-       # export PATH="$GOPATH/bin:$PATH" && go install github.com/relaxnow/vcgopkg@latest
+        go install github.com/relaxnow/vcgopkg@latest
         vcgopkg .
+     #   export GOPATH=`go env GOPATH` &&
+       # export PATH="$GOPATH/bin:$PATH" && 
     - name: Run SCA Curl Script
       run: |
         export SRCCLR_API_TOKEN='${{ secrets.SRCCLR_API_TOKEN }}'
